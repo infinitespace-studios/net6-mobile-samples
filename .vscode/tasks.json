@@ -17,9 +17,10 @@
         },
         {
             // special target as it uses additional arguments
+            // we only support android at this time.
             "label": "Run",
             "type": "shell",
-            "command": "dotnet build ${input:project} \"-t:Install;_Run\" -p:AndroidAttachDebugger=${input:attach} -p:AndroidSdbHostPort=10000 -p:Configuration=${input:configuration}",
+            "command": "dotnet build ${input:project} \"-t:Run\" --no-restore -p:TargetFramework=net6.0-android -p:AndroidAttachDebugger=${input:attach} -p:AndroidSdbHostPort=10000 -p:Configuration=${input:configuration}",
             "group": {
                 "kind": "build",
                 "isDefault": true
